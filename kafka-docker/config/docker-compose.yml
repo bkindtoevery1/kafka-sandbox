@@ -1,0 +1,21 @@
+version: '3.8'
+volumes:
+  pipeline-kafka-1-volume:
+    name: pipeline-kafka-1-volume
+
+networks:
+  default:
+    name: zoo
+    external: true
+      
+services:
+  pipeline-kafka-1:
+    container_name: pipeline-kafka-1
+    environment:
+      BROKER_ID: 1
+    hostname: pipeline-kafka-1
+    image: pipeline-kafka
+    restart: always
+    volumes:
+      - pipeline-kafka-1-volume:/data
+
