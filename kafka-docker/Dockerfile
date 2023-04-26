@@ -21,3 +21,5 @@ COPY config/server.properties /usr/local/kafka/config/server.properties
 
 CMD bash init.sh
 
+CMD /usr/local/kafka/bin/kafka-topics.sh --create --topic please --bootstrap-server localhost:9092
+

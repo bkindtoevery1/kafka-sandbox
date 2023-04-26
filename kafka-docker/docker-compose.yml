@@ -1,0 +1,65 @@
+version: '3.8'
+volumes:
+  pipeline-kafka-1-volume:
+    name: pipeline-kafka-1-volume
+  pipeline-kafka-2-volume:
+    name: pipeline-kafka-2-volume
+  pipeline-kafka-3-volume:
+    name: pipeline-kafka-3-volume
+  pipeline-kafka-4-volume:
+    name: pipeline-kafka-4-volume
+  pipeline-kafka-5-volume:
+    name: pipeline-kafka-5-volume
+
+networks:
+  default:
+    name: zoo
+    external: true
+      
+services:
+  pipeline-kafka-1:
+    container_name: pipeline-kafka-1
+    environment:
+      BROKER_ID: 1
+    hostname: pipeline-kafka-1
+    image: pipeline-kafka
+    restart: always
+    volumes:
+      - pipeline-kafka-1-volume:/data
+  pipeline-kafka-2:
+    container_name: pipeline-kafka-2
+    environment:
+      BROKER_ID: 2
+    hostname: pipeline-kafka-2
+    image: pipeline-kafka
+    restart: always
+    volumes:
+      - pipeline-kafka-2-volume:/data
+  pipeline-kafka-3:
+    container_name: pipeline-kafka-3
+    environment:
+      BROKER_ID: 3
+    hostname: pipeline-kafka-3
+    image: pipeline-kafka
+    restart: always
+    volumes:
+      - pipeline-kafka-3-volume:/data
+  pipeline-kafka-4:
+    container_name: pipeline-kafka-4
+    environment:
+      BROKER_ID: 4
+    hostname: pipeline-kafka-4
+    image: pipeline-kafka
+    restart: always
+    volumes:
+      - pipeline-kafka-4-volume:/data
+  pipeline-kafka-5:
+    container_name: pipeline-kafka-5
+    environment:
+      BROKER_ID: 5
+    hostname: pipeline-kafka-5
+    image: pipeline-kafka
+    restart: always
+    volumes:
+      - pipeline-kafka-5-volume:/data
+
